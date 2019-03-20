@@ -84,6 +84,8 @@ func (c *ClusterResourceSet) newResource(name string, resource interface{}) *gfn
 func (c *ClusterResourceSet) addResourcesForControlPlane() {
 	clusterVPC := &gfn.AWSEKSCluster_ResourcesVpcConfig{
 		SecurityGroupIds: c.securityGroups,
+		EndpointPrivateAccess: c.spec.VPC.EndpointPrivateAccess,
+		EndpointPublicAccess: c.spec.VPC.EndpointPublicAccess,
 	}
 	for topology := range c.subnets {
 		clusterVPC.SubnetIds = append(clusterVPC.SubnetIds, c.subnets[topology]...)

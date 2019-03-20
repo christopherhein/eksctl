@@ -278,6 +278,8 @@ func NewClusterVPC() *ClusterVPC {
 		Network: Network{
 			CIDR: &cidr,
 		},
+		EndpointPrivateAccess: true,
+		EndpointPublicAccess: true,
 	}
 }
 

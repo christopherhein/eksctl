@@ -24,6 +24,14 @@ type (
 		ExtraCIDRs []*ipnet.IPNet `json:"extraCIDRs,omitempty"`
 		// for pre-defined shared node SG
 		SharedNodeSecurityGroup string `json:"sharedNodeSecurityGroup,omitempty"`
+		// EndpointPrivateAccess enables/disables private access for your cluster's
+		// Kubernetes API server endpoint
+		// +optional
+		EndpointPrivateAccess bool `json:"endpointPrivateAccess"`
+		// EndpointPublicAccess enables/disables public access for your cluster's
+		// Kubernetes API server endpoint.
+		// +optional
+		EndpointPublicAccess bool `json:"endpointPublicAccess"`
 	}
 	// ClusterSubnets holds private and public subnets
 	ClusterSubnets struct {
